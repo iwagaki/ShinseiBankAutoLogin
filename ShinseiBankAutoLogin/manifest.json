@@ -1,0 +1,16 @@
+{
+  "name": "新生銀行 Auto Login",
+  "version": "0.1",
+  "manifest_version": 2,
+  "permissions": [
+    "storage"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.shinseibank.co.jp/*"],
+      "js": ["release_compiled.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
