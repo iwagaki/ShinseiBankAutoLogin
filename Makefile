@@ -3,7 +3,8 @@ TARGET          = release.zip
 SRC_DIR         = ShinseiBankAutoLogin
 
 SRCS            = $(notdir $(shell find $(SRC_DIR) -name "*.js"))
-TARGET_FILES    = $(addprefix $(RELEASE_DIR)/, $(SRCS))
+RESORCE_FILES   = $(notdir $(shell find $(SRC_DIR) -name "*.html" -or -name "*.json"))
+TARGET_FILES    = $(addprefix $(RELEASE_DIR)/, $(SRCS) $(RESORCE_FILES))
 
 $(info TARGET_FILES = $(TARGET_FILES))
 
@@ -22,6 +23,13 @@ $(TARGET): $(RELEASE_DIR) $(TARGET_FILES)
 $(RELEASE_DIR):
 	mkdir $(RELEASE_DIR)
 
-.SUFFIXES: .js
+.SUFFIXES: .js .html .json
 $(RELEASE_DIR)/%.js: $(SRC_DIR)/%.js
 	java -jar $(CLOSURE_COMPILER_DIR)/compiler.jar --compilation_level ADVANCED_OPTIMIZATIONS --js $< --js_output_file $@
+
+$(RELEASE_DIR)/%.html: $(SRC_DIR)/%.html
+	cp $< $@
+
+$(RELEASE_DIR)/%.json: $(SRC_DIR)/%.json
+	cp $< $@
+
