@@ -1,4 +1,4 @@
-﻿function login(items) {
+function login(items) {
   if (document.title == 'ログインスクリーン') {
     var element;
     var elements;
@@ -26,7 +26,7 @@
     }
 
     element = document.getElementById('main-left-security');
-  
+
     if (element) {
         var cells = element.getElementsByTagName('strong');
         for (var i = 0; i < 3; i++) {
@@ -51,6 +51,6 @@ for (var i = 0; i < 5; i++) {
     optionIds.push(id);
   }
 }
-chrome.storage.local.get(optionIds, function(items) {
+chrome.storage.sync.get(optionIds, function(items) {
   login(items);
 });

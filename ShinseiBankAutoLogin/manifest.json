@@ -1,6 +1,6 @@
 {
   "name": "新生銀行 Auto Login",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "manifest_version": 2,
   "options_page": "options.html",
   "permissions": [

@@ -13,7 +13,7 @@ function save_options() {
       optionDict[id] = document.getElementById(id).value;
     }
   }
-  chrome.storage.local.set(optionDict, function() {
+  chrome.storage.sync.set(optionDict, function() {
     var status = document.getElementById('status');
     status.innerHTML = 'Options saved.';
     setTimeout(function() {
@@ -30,7 +30,7 @@ function restore_options() {
       optionIds.push(id);
     }
   }
-  chrome.storage.local.get(optionIds, function(items) {
+  chrome.storage.sync.get(optionIds, function(items) {
     for (var i = 0; i < optionIds.length; i++) {
       id = optionIds[i];
       if (items[id]) {
