@@ -39,8 +39,8 @@ function login(items) {
     }
 
     element = document.getElementById('loginbutton');
-    if (element)
-        element.click();
+//    if (element)
+//        element.click();
   }
 }
 
